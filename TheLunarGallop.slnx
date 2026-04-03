@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="ZodiacAPI/ZodiacAPI.csproj" />
+  <Project Path="ZodiacTests/ZodiacTests.csproj" />
+</Solution>

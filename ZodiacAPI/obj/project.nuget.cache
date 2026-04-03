@@ -1,0 +1,11 @@
+{
+  "version": 2,
+  "dgSpecHash": "PYt+nWfRIWU=",
+  "success": true,
+  "projectFilePath": "C:\\Users\\Jessica L\\OneDrive\\Desktop\\TheLunarGallop\\ZodiacAPI\\ZodiacAPI.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\Jessica L\\.nuget\\packages\\microsoft.aspnetcore.openapi\\10.0.3\\microsoft.aspnetcore.openapi.10.0.3.nupkg.sha512",
+    "C:\\Users\\Jessica L\\.nuget\\packages\\microsoft.openapi\\2.0.0\\microsoft.openapi.2.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}

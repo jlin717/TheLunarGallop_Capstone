@@ -1,0 +1,6 @@
+@ZodiacAPI_HostAddress = http://localhost:5215
+
+GET {{ZodiacAPI_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
