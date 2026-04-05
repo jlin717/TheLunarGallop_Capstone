@@ -3,7 +3,7 @@ async function addUser()
     const name = document.getElementById('userName').value;
     const year = document.getElementById('birthYear').value;
 
-    const reponse = await fetch('/api/zodiac',
+    const response = await fetch('/api/zodiac',
     {
         method: 'POST',
         headers: { 'Content-Type' : 'application/json' },
