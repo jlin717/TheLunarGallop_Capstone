@@ -18,5 +18,9 @@ async function addUser()
         const user = await response.json();
         document.querySelector('.zodiac-box').innerHTML =
             `<h2>Hi ${user.Name}!</h2><p>Your sign is the ${user.assignedSign}.</p>`;
+    }
+    else
+    {
+        alert("Server error. Please try again later!")
     } 
 }
