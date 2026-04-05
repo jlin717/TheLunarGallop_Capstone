@@ -25,7 +25,6 @@ C:\Users\Jessica L\OneDrive\Desktop\TheLunarGallop\ZodiacAPI\obj\Debug\net10.0\s
 C:\Users\Jessica L\OneDrive\Desktop\TheLunarGallop\ZodiacAPI\obj\Debug\net10.0\compressed\0qm3ht8h3l-{0}-zcv9bzq52r-zcv9bzq52r.gz
 C:\Users\Jessica L\OneDrive\Desktop\TheLunarGallop\ZodiacAPI\obj\Debug\net10.0\compressed\fkxafglxd6-{0}-ds1buwr0nb-ds1buwr0nb.gz
 C:\Users\Jessica L\OneDrive\Desktop\TheLunarGallop\ZodiacAPI\obj\Debug\net10.0\compressed\e2j9u6fons-{0}-h3si4dvmpv-h3si4dvmpv.gz
-C:\Users\Jessica L\OneDrive\Desktop\TheLunarGallop\ZodiacAPI\obj\Debug\net10.0\compressed\iiwfwejw3y-{0}-5ipweew5fc-5ipweew5fc.gz
 C:\Users\Jessica L\OneDrive\Desktop\TheLunarGallop\ZodiacAPI\obj\Debug\net10.0\compressed\p2cu77n8d8-{0}-vglpx8g22s-vglpx8g22s.gz
 C:\Users\Jessica L\OneDrive\Desktop\TheLunarGallop\ZodiacAPI\obj\Debug\net10.0\compressed\fxuacmxaa0-{0}-8r3k8p7ij4-8r3k8p7ij4.gz
 C:\Users\Jessica L\OneDrive\Desktop\TheLunarGallop\ZodiacAPI\obj\Debug\net10.0\staticwebassets.build.json
@@ -39,3 +38,4 @@ C:\Users\Jessica L\OneDrive\Desktop\TheLunarGallop\ZodiacAPI\obj\Debug\net10.0\r
 C:\Users\Jessica L\OneDrive\Desktop\TheLunarGallop\ZodiacAPI\obj\Debug\net10.0\ZodiacAPI.pdb
 C:\Users\Jessica L\OneDrive\Desktop\TheLunarGallop\ZodiacAPI\obj\Debug\net10.0\ZodiacAPI.genruntimeconfig.cache
 C:\Users\Jessica L\OneDrive\Desktop\TheLunarGallop\ZodiacAPI\obj\Debug\net10.0\ref\ZodiacAPI.dll
+C:\Users\Jessica L\OneDrive\Desktop\TheLunarGallop\ZodiacAPI\obj\Debug\net10.0\compressed\iiwfwejw3y-{0}-kg6iyytzai-kg6iyytzai.gz
