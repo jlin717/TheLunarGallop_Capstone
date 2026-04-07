@@ -59,6 +59,22 @@ If I had more time, I would have implemented the following:
 
 Personal Growth
 
-This project has been a major "aha!" moment for me. I’ve realized that I am definitely more proficient in frontend development; I enjoy the visual and interactive aspects of building a site. My biggest weakness is currently the backend, and I recognize that I need to improve my skills in that area.
+Throughout this capstone project, I recognized that my strengths lie in frontend development; I truly enjoy the visual and interactive aspects of building a user interface. However, I found backend development and JavaScript logic to be significant challenges.
 
-Even after the capstone interview is over, I plan to continue improving this website until I am fully satisfied with the results.
+To overcome these hurdles and meet the project requirements, I utilized various resources:
+
+    AI Assistance: I used AI to help debug syntax errors, specifically with the Fetch API and C# Controller routing.
+
+    Peer Support: I received guidance and technical help from my husband to better understand how data flows from the frontend to the backend.
+
+These resources were essential in helping me navigate areas where I lacked deep technical knowledge. I have realized that my backend skills are a weakness I need to improve, and even after this interview, I will continue to work on this website until I am satisfied with my ability to write the logic independently.
+
+References & Credits:
+
+The data and cultural information regarding the Chinese Zodiac and associated flora were sourced from the following:
+
+    Ace Flowers Houston: The Flower for Your Chinese Zodiac Animal
+
+    Chris Chun: Chinese Zodiac Insights
+
+    Lakeside Arts: Chinese Zodiac Stories
