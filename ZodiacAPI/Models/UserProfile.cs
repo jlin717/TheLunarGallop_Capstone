@@ -7,4 +7,5 @@ public class UserProfile
     public string Description { get; set; } = string.Empty;
     public int BirthYear { get; set; } 
     public string? AssignedSign { get; set; } //I will calculate this later on
+    public string? LuckyFlower { get; set; }
 }

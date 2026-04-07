@@ -40,7 +40,7 @@ public class ZodiacController : ControllerBase
         newUser.Id = Users.Count + 1;
 
         Users.Add(newUser);
-        return Ok();
+        return Ok(newUser); //Sends data back to JS
     }
 
     [HttpPut("{id}")] //Update: Fix a name or year

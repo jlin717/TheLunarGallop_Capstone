@@ -3,6 +3,12 @@ async function addUser()
     const name = document.getElementById('userName').value;
     const year = document.getElementById('birthYear').value;
 
+    if (!nameInput || !yearInput)
+    {
+        alert("Please enter both your name and birth year please.")
+        return;
+    }
+
     const response = await fetch('/api/zodiac',
     {
         method: 'POST',
