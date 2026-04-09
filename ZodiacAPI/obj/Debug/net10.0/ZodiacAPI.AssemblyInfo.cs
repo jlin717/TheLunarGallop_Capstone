@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ZodiacAPI")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3409ebbb6a0fd7928d57a2e6816073197e8f5eff")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5d88dae441bb4ce01b7e1882c17295882a042bd4")]
 [assembly: System.Reflection.AssemblyProductAttribute("ZodiacAPI")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ZodiacAPI")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

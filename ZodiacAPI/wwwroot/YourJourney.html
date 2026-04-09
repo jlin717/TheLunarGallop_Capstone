@@ -1,32 +1,81 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Your Journey</title>
-    </head>
+<head>
+    <title>Your Journey</title>
+    <style>
+        /* A little CSS to make it readable */
+        body { font-family: sans-serif; line-height: 1.6; padding: 20px; }
+        .zodiac-box { border: 2px solid #d4af37; padding: 20px; border-radius: 10px; max-width: 400px; }
+        .input-group { margin-bottom: 20px; }
+        input { display: block; margin-bottom: 10px; padding: 8px; width: 90%; }
+        button { background: #b22222; color: white; border: none; padding: 10px; cursor: pointer; }
+        #result-display { margin-top: 20px; font-weight: bold; color: #b22222; }
+    </style>
+</head>
 
-    <body>
-        <!-- Header -->
-        <header>
-            <!-- logo here -->
-            <a href="index.html">Home</a>
-            <a href="MeetTheSigns.html">Meet The Signs</a>
-            <a href="AuspiciousFlora.html">Auspicious Flora</a>
-            <a href="YourJourney.html">Your Journey</a>
-        </header>
+<body>
+    <header>
+        <a href="index.html">Home</a>
+        <a href="MeetTheSigns.html">Meet The Signs</a>
+        <a href="AuspiciousFlora.html">Auspicious Flora</a>
+        <a href="YourJourney.html">Your Journey</a>
+    </header>
 
-        <div class="zodiac-box">
-            <h2>Find Your Chinese Zodiac</h2>
+    <div class="zodiac-box">
+        <h2>Find Your Chinese Zodiac</h2>
 
-            <div class="input=group">
-                <input type="text" id="userName" placeholder="Your Name" required>
-                <input type="number" id="birthYear" placeholder="Birth Year (e.g. 1996)" required>
-                <button type="button" onclick="addUser()">Reveal My Sign</button>
-            </div>
-
-            <div id="result-display">
-                <p>Enter your details above to see your zodiac and lucky flower!</p>
-            </div>
+        <div class="input-group">
+            <input type="text" id="userName" placeholder="Your Name" required>
+            <input type="number" id="birthYear" placeholder="Birth Year (e.g. 1996)" required>
+            <button type="button" onclick="addUser()">Reveal My Sign</button>
         </div>
 
-    </body>
+        <div id="result-display">
+            <p>Enter your details above to see your zodiac and lucky flower!</p>
+        </div>
+    </div>
+
+    <script>
+        function addUser() {
+            // 1. Get the values from the inputs
+            const name = document.getElementById('userName').value;
+            const year = document.getElementById('birthYear').value;
+            const display = document.getElementById('result-display');
+
+            // 2. Validate input
+            if (!name || !year) {
+                display.innerHTML = "Please enter both your name and birth year!";
+                return;
+            }
+
+            // 3. Zodiac Data (The order starts at Monkey because 0 % 12 = Monkey in the calendar cycle)
+            const signs = [
+                { animal: "Rat", flower: "Lily" },
+                { animal: "Ox", flower: "Peony" },
+                { animal: "Tiger", flower: "Orchid" },
+                { animal: "Rabbit", flower: "Jasmine" },
+                { animal: "Dragon", flower: "Lotus" },
+                { animal: "Snake", flower: "Camellia" },
+                { animal: "Horse", flower: "Sunflower" },
+                { animal: "Goat", flower: "Carnation" },
+                { animal: "Monkey", flower: "Chrysanthemum" },
+                { animal: "Rooster", flower: "Gladiolus" },
+                { animal: "Dog", flower: "Rose" },
+                { animal: "Pig", flower: "Hydrangea" }
+            ];
+
+            // 4. Calculate the index
+            // The Chinese Zodiac cycle repeats every 12 years. 
+            const index = year % 12;
+            const result = signs[index];
+
+            // 5. Display the result
+            display.innerHTML = `
+                <p>Hello, ${name}!</p>
+                <p>Your sign is the <strong>${result.animal}</strong>.</p>
+                <p>Your lucky flower is the <strong>${result.flower}</strong>!</p>
+            `;
+        }
+    </script>
+</body>
 </html>
