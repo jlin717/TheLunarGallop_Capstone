@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("ZodiacTests")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+0d36b68cfc0bd5cbad95b12e993b3fef89843f80")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+3409ebbb6a0fd7928d57a2e6816073197e8f5eff")]
 [assembly: System.Reflection.AssemblyProductAttribute("ZodiacTests")]
 [assembly: System.Reflection.AssemblyTitleAttribute("ZodiacTests")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
