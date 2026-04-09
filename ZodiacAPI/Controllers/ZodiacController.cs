@@ -30,17 +30,27 @@ public class ZodiacController : ControllerBase
     [HttpGet] //Read: Get all users
     public ActionResult<IEnumerable<UserProfile>> Get() => Ok(Users);
     
-    [HttpPost] //Create: Add a user and calculates their sign
+    [HttpPost]
     public IActionResult PostUser([FromBody] UserProfile newUser)
     {
+        // 1. Calculate the Sign Index
+        // (Year - 4) % 12 is the standard formula where 0 = Rat, 8 = Dragon, etc.
         int signIndex = (newUser.BirthYear - 4) % 12;
         if (signIndex < 0) signIndex += 12;
 
+        // 2. Define the Lucky Flowers based on the Sign
+        string[] flowers = { 
+            "Lily", "Peony", "Orchid", "Jasmine", "Lotus", "Camellia", 
+            "Sunflower", "Carnation", "Chrysanthemum", "Gladiolus", "Rose", "Hydrangea" 
+        };
+
+        // 3. Assign the results to the user profile
         newUser.AssignedSign = Signs[signIndex].Name;
+        newUser.LuckyFlower = flowers[signIndex];
         newUser.Id = Users.Count + 1;
 
         Users.Add(newUser);
-        return Ok(newUser); //Sends data back to JS
+        return Ok(newUser); // This sends the full object back to the browser
     }
 
     [HttpPut("{id}")] //Update: Fix a name or year
