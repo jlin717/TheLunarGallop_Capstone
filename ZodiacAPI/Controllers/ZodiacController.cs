@@ -27,33 +27,43 @@ public class ZodiacController : ControllerBase
 
     private static List<UserProfile> Users = new List<UserProfile>();
 
-    [HttpGet] //Read: Get all users
-    public ActionResult<IEnumerable<UserProfile>> Get() => Ok(Users);
-    
-    [HttpPost]
-    public IActionResult PostUser([FromBody] UserProfile newUser)
+    private static readonly string[] FlowerNames = {
+        "Lily", "Peony", "Orchid", "Jasmine", "Lotus", "Camellia",
+        "Sunflower", "Carnation", "Chrysanthemum", "Gladiolus", "Rose", "Hydrangea"
+    };
+
+    private (string sign, string flower, string description) CalculateZodiac(int birthYear)
     {
-        // 1. Calculate the Sign Index
-        // (Year - 4) % 12 is the standard formula where 0 = Rat, 8 = Dragon, etc.
-        int signIndex = (newUser.BirthYear - 4) % 12;
+        int signIndex = (birthYear - 4) % 12;
         if (signIndex < 0) signIndex += 12;
 
-        // 2. Define the Lucky Flowers based on the Sign
-        string[] flowers = { 
-            "Lily", "Peony", "Orchid", "Jasmine", "Lotus", "Camellia", 
-            "Sunflower", "Carnation", "Chrysanthemum", "Gladiolus", "Rose", "Hydrangea" 
-        };
+        string sign = Signs[signIndex].Name;
+        string flower = FlowerNames[signIndex];
+        string description = Signs[signIndex].Description;
 
-        // 3. Assign the results to the user profile
-        newUser.AssignedSign = Signs[signIndex].Name;
-        newUser.LuckyFlower = flowers[signIndex];
-        newUser.Id = Users.Count + 1;
-
-        Users.Add(newUser);
-        return Ok(newUser); // This sends the full object back to the browser
+        return (sign, flower, description);
     }
 
-    [HttpPut("{id}")] //Update: Fix a name or year
+    [HttpGet] // READ: Get all users
+    public ActionResult<IEnumerable<UserProfile>> Get() => Ok(Users);
+
+    [HttpPost] // CREATE: Add a new user
+    public IActionResult PostUser([FromBody] UserProfile newUser)
+    {
+        if (newUser == null || newUser.BirthYear < 1900) return BadRequest("Invalid data");
+
+        var (sign, flower, description) = CalculateZodiac(newUser.BirthYear);
+        newUser.AssignedSign = sign;
+        newUser.LuckyFlower = flower;
+        newUser.Description = description;
+
+        newUser.Id = Users.Count + 1;
+        Users.Add(newUser);
+
+        return Ok(newUser);
+    }
+
+    [HttpPut("{id}")] // UPDATE: Fix a name or year
     public IActionResult UpdateUser(int id, [FromBody] UserProfile updated)
     {
         var user = Users.FirstOrDefault(u => u.Id == id);
@@ -62,14 +72,15 @@ public class ZodiacController : ControllerBase
         user.Name = updated.Name;
         user.BirthYear = updated.BirthYear;
 
-        //Recalculates the year in case it changes
-        int signIndex = (updated.BirthYear - 4) % 12;
-        user.AssignedSign = Signs[signIndex].Name;
+        var (sign, flower, description) = CalculateZodiac(updated.BirthYear);
+        user.AssignedSign = sign;
+        user.LuckyFlower = flower;
+        user.Description = description;
 
         return Ok(user);
     }
 
-    [HttpDelete("{id}")] //Delete: Remove user
+    [HttpDelete("{id}")] // DELETE: Remove user
     public IActionResult DeleteUser(int id)
     {
         var user = Users.FirstOrDefault(u => u.Id == id);

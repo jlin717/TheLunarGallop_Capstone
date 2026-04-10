@@ -3,13 +3,24 @@
 <head>
     <title>Your Journey</title>
     <style>
-        /* A little CSS to make it readable */
         body { font-family: sans-serif; line-height: 1.6; padding: 20px; }
-        .zodiac-box { border: 2px solid #d4af37; padding: 20px; border-radius: 10px; max-width: 400px; }
+        .zodiac-box { border: 2px solid #d4af37; padding: 20px; border-radius: 10px; max-width: 500px; }
         .input-group { margin-bottom: 20px; }
         input { display: block; margin-bottom: 10px; padding: 8px; width: 90%; }
-        button { background: #b22222; color: white; border: none; padding: 10px; cursor: pointer; }
+        button { background: #b22222; color: white; border: none; padding: 10px; cursor: pointer; margin-right: 6px; border-radius: 4px; }
+        button.secondary { background: #555; }
+        button.danger { background: #8b0000; }
         #result-display { margin-top: 20px; font-weight: bold; color: #b22222; }
+
+        #users-section { margin-top: 40px; max-width: 750px; }
+        #users-section h3 { color: #b22222; }
+        table { width: 100%; border-collapse: collapse; margin-top: 10px; font-size: 0.9em; }
+        th, td { border: 1px solid #d4af37; padding: 8px 10px; text-align: left; vertical-align: top; }
+        th { background: #b22222; color: white; }
+        tr:nth-child(even) { background: #fdf8ec; }
+        .action-btn { padding: 4px 10px; font-size: 0.85em; }
+        #edit-section { margin-top: 30px; max-width: 500px; border: 2px dashed #d4af37; padding: 20px; border-radius: 10px; display: none; }
+        #edit-section h3 { color: #b22222; margin-top: 0; }
     </style>
 </head>
 
@@ -21,13 +32,14 @@
         <a href="YourJourney.html">Your Journey</a>
     </header>
 
+    <!-- CREATE: Input form -->
     <div class="zodiac-box">
         <h2>Find Your Chinese Zodiac</h2>
 
         <div class="input-group">
             <input type="text" id="userName" placeholder="Your Name" required>
             <input type="number" id="birthYear" placeholder="Birth Year (e.g. 1996)" required>
-            <button type="button" onclick="addUser()">Reveal My Sign</button>
+            <button type="button" id="revealBtn">Reveal My Sign</button>
         </div>
 
         <div id="result-display">
@@ -35,47 +47,37 @@
         </div>
     </div>
 
-    <script>
-        function addUser() {
-            // 1. Get the values from the inputs
-            const name = document.getElementById('userName').value;
-            const year = document.getElementById('birthYear').value;
-            const display = document.getElementById('result-display');
+    <div id="users-section">
+        <h3>Saved Journeys</h3>
+        <button class="secondary" id="refreshBtn">&#8635; Refresh List</button>
+        <table id="users-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Name</th>
+                    <th>Birth Year</th>
+                    <th>Sign</th>
+                    <th>Lucky Flower</th>
+                    <th>Description</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody id="users-tbody">
+                <tr><td colspan="7">No journeys saved yet.</td></tr>
+            </tbody>
+        </table>
+    </div>
 
-            // 2. Validate input
-            if (!name || !year) {
-                display.innerHTML = "Please enter both your name and birth year!";
-                return;
-            }
+    <div id="edit-section">
+        <h3>Edit Journey</h3>
+        <input type="hidden" id="editUserId">
+        <input type="text" id="editUserName" placeholder="Name">
+        <input type="number" id="editBirthYear" placeholder="Birth Year">
+        <button id="saveEditBtn">Save Changes</button>
+        <button class="secondary" id="cancelEditBtn">Cancel</button>
+    </div>
 
-            // 3. Zodiac Data (The order starts at Monkey because 0 % 12 = Monkey in the calendar cycle)
-            const signs = [
-                { animal: "Rat", flower: "Lily" },
-                { animal: "Ox", flower: "Peony" },
-                { animal: "Tiger", flower: "Orchid" },
-                { animal: "Rabbit", flower: "Jasmine" },
-                { animal: "Dragon", flower: "Lotus" },
-                { animal: "Snake", flower: "Camellia" },
-                { animal: "Horse", flower: "Sunflower" },
-                { animal: "Goat", flower: "Carnation" },
-                { animal: "Monkey", flower: "Chrysanthemum" },
-                { animal: "Rooster", flower: "Gladiolus" },
-                { animal: "Dog", flower: "Rose" },
-                { animal: "Pig", flower: "Hydrangea" }
-            ];
+    <script src="script.js" defer></script>
 
-            // 4. Calculate the index
-            // The Chinese Zodiac cycle repeats every 12 years. 
-            const index = (year - 4) % 12;
-            const result = signs[index];
-
-            // 5. Display the result
-            display.innerHTML = `
-                <p>Hello, ${name}!</p>
-                <p>Your sign is the <strong>${result.animal}</strong>.</p>
-                <p>Your lucky flower is the <strong>${result.flower}</strong>!</p>
-            `;
-        }
-    </script>
 </body>
 </html>
